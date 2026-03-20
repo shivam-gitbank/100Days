@@ -17,8 +17,8 @@ def band(first_half, second_half):
         return "ERROR: Band name cannot be formed empty input received"
     elif len(first_half) < 3 or len(second_half) < 3:
         return "ERROR: Band name shorter than 3 letters in city or school input"
-    return first_half + second_half
+    return first_half, second_half
 
 # output final 3 letter mash up of city and school band name.
-band_name = band(first_half, second_half).upper()
-print(f"Band name is {band_name}")
+first, second = band(first_half, second_half)
+print(f"Band name is {first} {second}") # introducing space between 2 code names
