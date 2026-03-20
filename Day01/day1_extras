@@ -1,1 +1,3 @@
-print(len(input("I can tell you the number of alphabets in any letter -- ")))
+name =  input("enter your name? - ")
+lent = len(name)
+print(lent)             
