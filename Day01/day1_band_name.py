@@ -1,14 +1,14 @@
-# trim the school name or band name to 3 letters 
+# trim the school name or band name to 3 letters.
 def trim_len(str1):
       return str1[:3]
 
 # band name input 
 print("So you came for a band name 👀 !!!")
 
-city = input("Tell me the first 3 letters of the city you were born in: ")
+city = input("Tell me the first 3 letters of the city you were born in: \n")
 first_half = trim_len(city)
 
-school = input("The school where you spent most years (first 3 letters): ")
+school = input("The school where you spent most years (first 3 letters): \n") # using back-slash '\' as escape character. 
 second_half = trim_len(school)
 
 # checking for null input 
@@ -19,6 +19,6 @@ def band(first_half, second_half):
         return "ERROR: Band name shorter than 3 letters in city or school input"
     return first_half + second_half
 
-# output final 3 letter mash up of city and school band name 
+# output final 3 letter mash up of city and school band name.
 band_name = band(first_half, second_half).upper()
 print(f"Band name is {band_name}")
