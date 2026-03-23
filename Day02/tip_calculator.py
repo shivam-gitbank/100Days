@@ -12,7 +12,7 @@ tip = float(input("How much tip would you like to give 10, 12 or 15% = "))
 total_BT = float(tip_calc(bill_total,tip))
 
 # splitting bill logic 
-peeps = int(input ("how may people you wanna split the bill with? -- "))
+peeps = int(input ("how may people you wanna split the bill with? = "))
 bill_per_persion = total_BT/peeps
-print(f"Each persion should pay : $ {round(bill_per_persion,2)}")
+print(f"Each persion should pay : $ {round(bill_per_persion, 2)}")
 
