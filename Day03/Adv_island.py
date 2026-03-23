@@ -9,19 +9,15 @@ if direction == "left":
         colour = input("You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow, one blue. Which colour do you choose? \n")
         if colour == "red":
             print("It's a room full of fire. Game Over.... :_(")
-            exit
         elif colour == "blue":
             print("Its the endless pit. Game Over..... :L ")
-            exit
         elif colour == "yellow":
             print("YOU FINALLY FOUND THE TREASURE -- YOU WON !!!! ")
-            exit
     elif action == "swim":
         print ("you got eaten by a shark, come on bro, Game Over }:P ")
-        exit
 elif direction == "Right":
     print("get yo ass to bed now ")
-    exit 
+
     
 
                 
