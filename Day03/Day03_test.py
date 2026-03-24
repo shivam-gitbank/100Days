@@ -10,11 +10,19 @@ else:
     age = int(input("what is your age ? \n"))
 # age check 
     if age <= 12:
-        print("please pay $5.00")
+        bill = 5.00
     elif age <= 18:
-        print("please pay $7.00")
+        bill = 7.00
     else:
-        print("please pay $12.00")
+        bill = 12.00
+
+# logic for photos
+    decision = input("do you want to photos of your ride ? ")
+    if decision.lower() == "yes":
+        bill += 3.00
+        print(f"total bill {bill}")
+    else:
+        print(f"total bill is {bill}")
     print("enjoy your ride :)\n")
 
 
