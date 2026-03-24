@@ -2,6 +2,7 @@
 
 print("Welcome to the roller coaster !! ")
 height = float(input("What is your height in cm ? \n"))
+bill = 0
 
 # conditional to check for the minimum required height
 if height < 120:
@@ -11,19 +12,21 @@ else:
 # age check 
     if age <= 12:
         bill = 5.00
+        print(f"tickets for minors are $ {bill}")
     elif age <= 18:
         bill = 7.00
+        print(f"tickets for teens are $ {bill}")
     else:
         bill = 12.00
+        print(f"tickets for Adults are $ {bill}")
 
 # logic for photos
     decision = input("do you want to photos of your ride ? ")
     if decision.lower() == "yes":
         bill += 3.00
-        print(f"total bill {bill}")
-    else:
-        print(f"total bill is {bill}")
-    print("enjoy your ride :)\n")
+
+print(f"total bill is $ {bill}")
+print("enjoy your ride :)\n")
 
 
 #coding challenge 2 ODD even check
