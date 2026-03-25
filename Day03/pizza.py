@@ -8,38 +8,24 @@ total_bill = 0
 # pilot pizza project (conditional formatting)
 if size == 'S':
     total_bill = 15
-    if pepperoni == 'Y':
-        total_bill += 3
-    elif pepperoni == 'N':
-        total_bill == total_bill
-        if extra_cheese == 'Y':
-            total_bill +=2
-        elif extra_cheese == 'N':
-            total_bill == total_bill
-    print(f"price for small pizza is ${total_bill}") 
 elif size == 'M':
     total_bill = 20
-    if pepperoni == 'Y':
-        total_bill += 3
-    elif pepperoni == 'N':
-        total_bill == total_bill
-        if extra_cheese == 'Y':
-            total_bill +=1
-        elif extra_cheese == 'N':
-            total_bill == total_bill
-    print(f"price for Medium pizza is ${total_bill}")
 elif size == 'L':
     total_bill = 25
-    if pepperoni == 'Y':
-        total_bill += 3
-    elif pepperoni == 'N':
-        total_bill == total_bill
-        if extra_cheese == 'Y':
-            total_bill +=1
-        elif extra_cheese == 'N':
-            total_bill == total_bill
-            print(f"total bill is : $ {total_bill}")
-    print(f"price for largeH pizza is ${total_bill}")
 else:
-    print("We know you are hungry but the incorrect pizza will only increase delay :)")
+    print("We know you are hungry but the incorrect pizza will only increase delay :)")# exception handler 
+
+# Option for pepperoni
+if pepperoni == 'Y':
+    if size == 'S':
+        total_bill += 2
+    else:
+        total_bill += 3
+
+# Option for cheese 
+if extra_cheese == 'Y':
+    total_bill += 1
+
+# final bill 
+print(f"Your Final Bill is $ {total_bill}.")
     
