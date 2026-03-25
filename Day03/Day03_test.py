@@ -16,6 +16,8 @@ else:
     elif age <= 18:
         bill = 7.00
         print(f"tickets for teens are $ {bill}")
+    elif age >= 45 and age <= 55:
+        bill = 0
     else:
         bill = 12.00
         print(f"tickets for Adults are $ {bill}")
