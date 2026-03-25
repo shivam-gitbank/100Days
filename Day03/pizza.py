@@ -7,7 +7,7 @@ total_bill = 0
 
 # pilot pizza project (conditional formatting)
 if size == 'S':
-    total_bill = 5
+    total_bill = 15
     if pepperoni == 'Y':
         total_bill += 3
     elif pepperoni == 'N':
@@ -18,24 +18,24 @@ if size == 'S':
             total_bill == total_bill
     print(f"price for small pizza is ${total_bill}") 
 elif size == 'M':
-    total_bill = 7
+    total_bill = 20
     if pepperoni == 'Y':
         total_bill += 3
     elif pepperoni == 'N':
         total_bill == total_bill
         if extra_cheese == 'Y':
-            total_bill +=2
+            total_bill +=1
         elif extra_cheese == 'N':
             total_bill == total_bill
     print(f"price for Medium pizza is ${total_bill}")
 elif size == 'L':
-    total_bill = 10
+    total_bill = 25
     if pepperoni == 'Y':
         total_bill += 3
     elif pepperoni == 'N':
         total_bill == total_bill
         if extra_cheese == 'Y':
-            total_bill +=2
+            total_bill +=1
         elif extra_cheese == 'N':
             total_bill == total_bill
             print(f"total bill is : $ {total_bill}")
