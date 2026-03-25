@@ -15,7 +15,7 @@ if direction.lower() == "left":
             print("YOU FINALLY FOUND THE TREASURE -- YOU WON !!!! ")
     elif action.lower() == "swim":
         print ("you got eaten by a shark, come on bro, Game Over }:P ")
-elif direction.lower == "right":
+else:
     print("GAME OVER - there was a lion waiting to eat you out there :()")
 
     
