@@ -46,8 +46,6 @@ elif choice == 'scissors':
     choice = scissors
 elif choice == 'paper':
     choice = paper
-else:
-    print(f"incorrct input {choice}")
 
 # rock paper and scissors conditional function 
 def RPS_logic(P1,PC):
@@ -60,7 +58,7 @@ def RPS_logic(P1,PC):
     elif P1 == PC:
         print("you and PC are thinking alike - its a draw")
     else:
-        if P1 in options:
+        if P1 in options: 
             print(f"{P1} won over {PC}- Player won")
         else:
             print(f"your input is not a vaild input {P1}")
