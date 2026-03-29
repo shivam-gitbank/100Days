@@ -56,6 +56,7 @@ def RPS_logic(P1,PC):
     elif P1 == scissors and PC == rock:
         print(f"{PC} beat {P1} - PC won")
     elif P1 == PC:
+        
         print("you and PC are thinking alike - its a draw")
     else:
         if P1 in options: 
