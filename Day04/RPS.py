@@ -32,7 +32,7 @@ scissors = ('''
       
       ''')
 # storing ascii art in a list 
-options = [rock,paper,scissors]
+options = [rock, paper, scissors]
 
 # getting user input
 print("UP for a Rock Paper Scissors game ya ! ")
