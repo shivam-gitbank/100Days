@@ -10,10 +10,17 @@ pas_len = letters + symbols + numbers
 Symbol_list = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '{', '}', '[', ']', '<', '>', '?']
 letter_list = ['a','b','c','d','e','f','g','h', 'i','j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 numbers_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-password = ''
+password = []
 
-for i in range(pas_len):
+for i in range(letters):
+    l1 = random.choice(letter_list)
+    password.append[l1]
+for j in range(symbols):
     s1 = random.choice(Symbol_list)
-    password += s1
+    password.append[s1]
+for k in range(numbers):
+    n1 = random.choice(numbers_list)
+    password.append[n1]
+
 
 print(f"{password}")
