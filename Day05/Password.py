@@ -10,7 +10,7 @@ pas_len = letters + symbols + numbers
 Symbol_list = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '{', '}', '[', ']', '<', '>', '?']
 letter_list = ['a','b','c','d','e','f','g','h', 'i','j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 numbers_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-password = []
+password = [].
 
 for i in range(letters):
     l1 = random.choice(letter_list)
@@ -26,9 +26,11 @@ for k in range(numbers):
 print(f"{password}")
 
 #randomizer logic
-def rand_pass(password):
-    for l in password:
-        R_pass = random.choice(password)
+def rand_pass(password1):
+    pass_str =  ''
+    for l in password1:
+        R_pass = random.choice(password1)
+        password1.pop(R_pass)
         pass_str += R_pass
     return pass_str
 
