@@ -14,13 +14,13 @@ password = []
 
 for i in range(letters):
     l1 = random.choice(letter_list)
-    password.append[l1]
+    password.append(l1)
 for j in range(symbols):
     s1 = random.choice(Symbol_list)
-    password.append[s1]
+    password.append(s1)
 for k in range(numbers):
     n1 = random.choice(numbers_list)
-    password.append[n1]
+    password.append(n1)
 
 
 print(f"{password}")
