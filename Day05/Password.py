@@ -24,3 +24,16 @@ for k in range(numbers):
 
 
 print(f"{password}")
+
+#randomizer logic
+def rand_pass(password):
+    for l in password:
+        R_pass = random.choice(password)
+        pass_str += R_pass
+    return pass_str
+
+f_pass = rand_pass(password)
+
+print(f"final password is {f_pass} ")
+
+
