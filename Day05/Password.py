@@ -1,17 +1,19 @@
+# importing Random Liberary 
 import random
 
+# inputs from users
 print("Welcome to the Password Generator !")
 letters = int(input("How many Letters would you like in your password?\n"))
 symbols = int(input("How many Symbols do you want in your password?\n"))
 numbers = int(input("How many numbers would you like in your password?\n"))
 
-pas_len = letters + symbols + numbers
-
+# List for every element required to create password
 Symbol_list = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '{', '}', '[', ']', '<', '>', '?']
 letter_list = ['a','b','c','d','e','f','g','h', 'i','j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 numbers_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-password = [].
+password = []
 
+# Creating inital password with lists of letters, numbers and symbols
 for i in range(letters):
     l1 = random.choice(letter_list)
     password.append(l1)
@@ -22,20 +24,19 @@ for k in range(numbers):
     n1 = random.choice(numbers_list)
     password.append(n1)
 
-
+# Inital password created by random choice 
 print(f"{password}")
 
-#randomizer logic
+# Randomizer Logic
 def rand_pass(password1):
+    len_pass = len(password1)
     pass_str =  ''
-    for l in password1:
+    for l in range(len_pass):
         R_pass = random.choice(password1)
-        password1.pop(R_pass)
+        password1.remove(R_pass)
         pass_str += R_pass
     return pass_str
 
+# calling out password randomizer logic
 f_pass = rand_pass(password)
-
 print(f"final password is {f_pass} ")
-
-
