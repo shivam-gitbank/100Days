@@ -1,3 +1,4 @@
+import random
 fruits = ["Apple", "Peach", "Pear"]
 for fruit in fruits:
     print(fruit)
@@ -9,4 +10,6 @@ for i in student_scores:
         max = i
 
 print(max)
-        
+
+go = random.random()* 10
+print(go)
