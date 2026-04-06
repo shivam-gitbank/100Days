@@ -8,8 +8,7 @@ max = 0
 for i in student_scores:
     if max < i:
         max = i
-
 print(max)
 
-go = random.random()* 10
+go = random.random() * 10
 print(go)
