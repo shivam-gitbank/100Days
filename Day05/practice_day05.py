@@ -12,3 +12,8 @@ print(max)
 
 go = random.random() * 10
 print(go)
+
+sum_100 = 0
+for num in range(1, 101):
+    sum_100 += num
+print(sum_100)
