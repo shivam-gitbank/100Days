@@ -16,14 +16,11 @@ password = []
 
 # Creating inital password with lists of letters, numbers and symbols
 for i in range(letters):
-    l1 = random.choice(letter_list)
-    password.append(l1)
+    password.append(random.choice(letter_list))
 for j in range(symbols):
-    s1 = random.choice(Symbol_list)
-    password.append(s1)
+    password.append(random.choice(Symbol_list))
 for k in range(numbers):
-    n1 = random.choice(numbers_list)
-    password.append(n1)
+    password.append(random.choice(numbers_list))
 
 # Inital password created by random choice 
 print(f"{password}")
