@@ -17,3 +17,14 @@ sum_100 = 0
 for num in range(1, 101):
     sum_100 += num
 print(sum_100)
+
+# fizz buzz game
+for inte in range(1, 101):
+    if inte % 3 == 0 and inte % 5 != 0:
+        print("Fizz")
+    elif inte % 5 == 0 and inte % 3 != 0:
+        print("Buzz")
+    elif inte % 3 == 0 and inte % 5 == 0:
+        print("FizzBuzz")
+    else:
+        print(inte)
