@@ -30,7 +30,7 @@ def rand_pass(password1):
     len_pass = len(password1)
     pass_str =  ''
     for l in range(len_pass):
-        R_pass = random.choice(password1)
+        R_pass = random.choice(password1) # - all of the above can be done with list.shuffle function - password1.shuffle() would have rearranged the list
         password1.remove(R_pass)
         pass_str += R_pass
     return pass_str
