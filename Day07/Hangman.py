@@ -1,5 +1,6 @@
 import random
 
+# list of random words to choose from for the problem 
 word_list = ['electricity', 'donkey', 'hardware', 'xerox', 'transistor', 'computer',
  'engineering', 'hangman', 'circuit', 'imagination', 'robot', 'memory', 'power', 
  'submarine', 'chess', 'resistance', 'matrix', 'function', 'laser', 'mechanism', 
@@ -35,8 +36,13 @@ word_list = ['electricity', 'donkey', 'hardware', 'xerox', 'transistor', 'comput
  'attraction', 'sensitivity', 'magnification', 'someone', 'symptom', 'recipe',
  'service', 'family', 'island', 'planet', 'butterfly']
 
+# the random word for the game 
 Hangman_secret = random.choice(word_list)
 
-Name = input ("greetings what is your name ah!, lets start with out with our Hang Man Horror!!!!")
+# user input and instructions 
+Name = input ("greetings what is your name ah!, lets start with out with our Hang Man Horror!!!! ")
 print(f"so now {Name}, we will let you guess the words you have 4 life lines with you \n"
       "if you guess incorrectly you will lose a life and the hangman shall be drawn\n ")
+
+# empty list for comparison from the secret word 
+player_word = [len(Hangman_secret)]
