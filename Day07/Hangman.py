@@ -51,11 +51,13 @@ LIFE_COUNT = 4
 while LIFE_COUNT != 0:
     # needs to be checked for blank inputs and not more than one word input
     guess = input("what is your current guess? ")
-    for _ in (Hangman_secret):
-        if _ == guess:
-            print("yay")
-        else:
-            LIFE_COUNT -= 1
+    for _, x in enumerate(Hangman_secret):
+        if _ == guess[0]:
+            print("yay", x)
+    print(guess[0])        
+    print(Hangman_secret)
+    LIFE_COUNT -= 1
+    print(f"{LIFE_COUNT}")
 
 if LIFE_COUNT == 0:
     print("your life are exhausted and so are you")
