@@ -50,10 +50,10 @@ player_word = ['_'* len(Hangman_secret)]
 LIFE_COUNT = 4
 while LIFE_COUNT != 0:
     # needs to be checked for blank inputs and not more than one word input
-    guess = input("what is your current guess? ")
-    for _, x in enumerate(Hangman_secret):
-        if _ == guess[0]:
-            print("yay", x)
+    guess = input("what is your current guess? ")[0]
+    for _ in (Hangman_secret):
+        if _ == guess:
+            print("yay")
     print(guess[0])        
     print(Hangman_secret)
     LIFE_COUNT -= 1
