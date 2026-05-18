@@ -1,8 +1,5 @@
 import random
 
-# constant life count 
-LIFE_COUNT = 4
-
 # list of random words to choose from for the problem 
 word_list = ['electricity', 'donkey', 'hardware', 'xerox', 'transistor', 'computer',
  'engineering', 'hangman', 'circuit', 'imagination', 'robot', 'memory', 'power', 
@@ -48,5 +45,19 @@ print(f"so now {Name}, we will let you guess the words you have 4 life lines wit
       "if you guess incorrectly you will lose a life and the hangman shall be drawn\n ")
 
 # empty list for comparison from the secret word 
-player_word = [['_']* len(Hangman_secret)]
+player_word = ['_'* len(Hangman_secret)]
 
+LIFE_COUNT = 4
+while LIFE_COUNT != 0:
+    # needs to be checked for blank inputs and not more than one word input
+    guess = input("what is your current guess? ")
+    for _ in (Hangman_secret):
+        if _ == guess:
+            print("yay")
+        else:
+            LIFE_COUNT -= 1
+
+if LIFE_COUNT == 0:
+    print("your life are exhausted and so are you")
+else:
+    print(f"you got it right the correct word is {Hangman_secret}")
