@@ -48,16 +48,15 @@ print(f"so now {Name}, we will let you guess the words you have 4 life lines wit
 player_word = ['_'* len(Hangman_secret)]
 
 LIFE_COUNT = 4
-while LIFE_COUNT != 0:
     # needs to be checked for blank inputs and not more than one word input
-    guess = input("what is your current guess? ")[0]
-    for _ in (Hangman_secret):
-        if _ == guess:
-            print("yay")
-    print(guess[0])        
-    print(Hangman_secret)
-    LIFE_COUNT -= 1
-    print(f"{LIFE_COUNT}")
+guess = input("what is your current guess? ").lower()
+for _ in (Hangman_secret):
+    if _ == guess:
+        print("yay")
+    else:
+        LIFE_COUNT -= 1
+        print(f"you lost a life {LIFE_COUNT}")     
+print(Hangman_secret)
 
 if LIFE_COUNT == 0:
     print("your life are exhausted and so are you")
