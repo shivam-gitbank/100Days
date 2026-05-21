@@ -45,14 +45,16 @@ print(f"so now {Name}, we will let you guess the words you have 4 life lines wit
       "if you guess incorrectly you will lose a life and the hangman shall be drawn\n ")
 
 # empty list for comparison from the secret word 
-player_word = [len(Hangman_secret)]
+player_word = "_"
+for p in (Hangman_secret):
+    print("_")
 
 LIFE_COUNT = 4
     # needs to be checked for blank inputs and not more than one word input
 
 while LIFE_COUNT != 0: 
     guess = input("what is your current guess? ").lower()
-    for i,_ in enumerate(Hangman_secret):
+    for i, _ in enumerate(Hangman_secret):
         if _ == guess:
             print("yay")
             player_word[i] = _
