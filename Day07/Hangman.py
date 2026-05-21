@@ -47,13 +47,13 @@ print(f"so now {Name}, we will let you guess the words you have 4 life lines wit
 # empty list for comparison from the secret word 
 player_word = "_"
 for p in (Hangman_secret):
-    print("_")
+    print("_", end= "")
 
 LIFE_COUNT = 4
     # needs to be checked for blank inputs and not more than one word input
 
 while LIFE_COUNT != 0: 
-    guess = input("what is your current guess? ").lower()
+    guess = input("\n\what is your current guess? ").lower()
     for i, _ in enumerate(Hangman_secret):
         if _ == guess:
             print("yay")
