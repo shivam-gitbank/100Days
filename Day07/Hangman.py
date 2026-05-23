@@ -1,3 +1,4 @@
+#importing random for randomising list
 import random
 
 # list of random words to choose from for the problem 
@@ -40,27 +41,30 @@ word_list = ['electricity', 'donkey', 'hardware', 'xerox', 'transistor', 'comput
 Hangman_secret = random.choice(word_list)
 
 # user input and instructions 
-Name = input ("greetings what is your name ah!, lets start with out with our Hang Man Horror!!!! ")
-print(f"so now {Name}, we will let you guess the words you have 4 life lines with you \n"
+Name = input ("greetings what is your name ah!!!! ")
+print(f"{Name}, we will let you guess the words for HANGMAN! you have 4 life lines with you \n"
       "if you guess incorrectly you will lose a life and the hangman shall be drawn\n ")
 
-# empty list for comparison from the secret word 
+# player view of the word segment _ 
 player_word = "_"
-for p in (Hangman_secret):
-    print("_", end= "")
 
+# total life 
 LIFE_COUNT = 4
-    # needs to be checked for blank inputs and not more than one word input
 
+# logic 
 while LIFE_COUNT != 0: 
     guess = input("\n\what is your current guess? ").lower()
-    for i, _ in enumerate(Hangman_secret):
-        if _ == guess:
-            print("yay")
-            player_word[i] = _
+    for i, letter in enumerate(Hangman_secret):
+        occurance = 0
+        if guess == letter:
+            print(letter, end= "")
+            occurance += 1
+        elif guess != letter:
+            print("_",end= "")
+            if occurance == 0:
+                LIFE_COUNT -= 1
+                break
             
-        elif _ != guess:
-            print("Nay")   
 print(f"Player_word == {player_word}")
 # approach now - should i keep a counter of yay nay and if nay == len of secret then no guess was correct - lose a life pop the letter - from the secret and add the letter
 # to the same position as the secret word 
