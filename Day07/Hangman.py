@@ -64,8 +64,7 @@ while LIFE_COUNT != 0:
             if occurance == 0:
                 LIFE_COUNT -= 1
                 break
-            
-print(f"Player_word == {player_word}")
+
 # approach now - should i keep a counter of yay nay and if nay == len of secret then no guess was correct - lose a life pop the letter - from the secret and add the letter
 # to the same position as the secret word 
 
