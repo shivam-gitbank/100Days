@@ -45,32 +45,31 @@ Name = input ("greetings what is your name ah!!!! ")
 print(f"{Name}, we will let you guess the words for HANGMAN! you have 4 life lines with you \n"
       "if you guess incorrectly you will lose a life and the hangman shall be drawn\n ")
 
-# player view of the word segment _ 
-player_word = "_"
-
 # total life 
 LIFE_COUNT = 4
 
 # logic 
-while LIFE_COUNT != 0: 
-    guess = input("\n\what is your current guess? ").lower()
+while LIFE_COUNT > 0: 
+    # Keeping the input as lowercase to keep the input consistent.
+    guess = input("\nwhat is your current guess? ").lower()
+    occurance = 0
+    #logic for priting same lenght blanks and letters inside the random chosen word 
     for i, letter in enumerate(Hangman_secret):
-        occurance = 0
         if guess == letter:
             print(letter, end= "")
             occurance += 1
-        elif guess != letter:
+        else:
             print("_",end= "")
-            if occurance == 0:
-                LIFE_COUNT -= 1
-                break
+    if occurance == 0:
+        LIFE_COUNT -= 1
+    else:
+        continue
+
 
 # approach now - should i keep a counter of yay nay and if nay == len of secret then no guess was correct - lose a life pop the letter - from the secret and add the letter
 # to the same position as the secret word 
 
-
-print(Hangman_secret)
-print(player_word)
+print(f"\n{Hangman_secret}")
 
 if LIFE_COUNT == 0:
     print("your life are exhausted and so are you")
