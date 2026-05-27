@@ -53,21 +53,19 @@ while LIFE_COUNT > 0:
     # Keeping the input as lowercase to keep the input consistent.
     guess = input("\nwhat is your current guess? ").lower()
     occurance = 0
-    #logic for priting same lenght blanks and letters inside the random chosen word 
+    #logic for priting same lenght blanks and letters inside the random chosen word. 
     for i, letter in enumerate(Hangman_secret):
         if guess == letter:
             print(letter, end= "")
             occurance += 1
+            # will see if i should use a function here or loop to create the word computer chose at random
         else:
             print("_",end= "")
     if occurance == 0:
         LIFE_COUNT -= 1
-    else:
+        # hangman print function can be here which sends current life count and outputs a print screen with hangman drawn
+    else: # tried break but it exited the while loop so had to use continue. 
         continue
-
-
-# approach now - should i keep a counter of yay nay and if nay == len of secret then no guess was correct - lose a life pop the letter - from the secret and add the letter
-# to the same position as the secret word 
 
 print(f"\n{Hangman_secret}")
 
