@@ -53,26 +53,31 @@ placeholder = ""
 for k in range(len(Hangman_secret)):
     placeholder += "_"
 
+# string to contain the correct guess
+display = ""
+
 # logic 
 while LIFE_COUNT > 0: 
     # Keeping the input as lowercase to keep the input consistent.
     guess = input("\nwhat is your current guess? ").lower()
     occurance = 0
+    
     #logic for priting same lenght blanks and letters inside the random chosen word. 
     for i, letter in enumerate(Hangman_secret):
         if guess == letter:
-            placeholder[i] = guess
-            print(letter, end= "")
+            display += letter
             occurance += 1
             # will see if i should use a function here or loop to create the word computer chose at random
         else:
-            print("_",end= "")
+            display += '_'
+    # Life count logic
     if occurance == 0:
         LIFE_COUNT -= 1
         # hangman print function can be here which sends current life count and outputs a print screen with hangman drawn
     else: # tried break but it exited the while loop so had to use continue. 
         continue
-print(placeholder)
+    print(display)
+
 print(f"\n{Hangman_secret}")
 
 if LIFE_COUNT == 0:
