@@ -45,39 +45,34 @@ Name = input ("greetings what is your name ah!!!! ")
 print(f"{Name}, we will let you guess the words for HANGMAN! you have 4 life lines with you \n"
       "if you guess incorrectly you will lose a life and the hangman shall be drawn\n ")
 
+place_holder = ""
+for i in range(len(Hangman_secret)):
+    place_holder += "_"
+
 # total life 
 LIFE_COUNT = 4
-
-# creating empty string of same len as secret 
-placeholder = ""
-for k in range(len(Hangman_secret)):
-    placeholder += "_"
-
-# string to contain the correct guess
-display = ""
+guessed_letters = []
 
 # logic 
 while LIFE_COUNT > 0: 
     # Keeping the input as lowercase to keep the input consistent.
     guess = input("\nwhat is your current guess? ").lower()
-    occurance = 0
-    
+    display = ""
     #logic for priting same lenght blanks and letters inside the random chosen word. 
-    for i, letter in enumerate(Hangman_secret):
+    for letter in (Hangman_secret):
         if guess == letter:
-            display += letter
-            occurance += 1
+            guessed_letters.append(letter)
+            print(letter, end="")
             # will see if i should use a function here or loop to create the word computer chose at random
         else:
-            display += '_'
-    # Life count logic
-    if occurance == 0:
+            print("_",end= "")
+    if guess not in Hangman_secret:
         LIFE_COUNT -= 1
         # hangman print function can be here which sends current life count and outputs a print screen with hangman drawn
     else: # tried break but it exited the while loop so had to use continue. 
         continue
-    print(display)
 
+print(display)
 print(f"\n{Hangman_secret}")
 
 if LIFE_COUNT == 0:
