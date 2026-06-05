@@ -81,7 +81,6 @@ while LIFE_COUNT > 0:
     print(display)
     # Game won logic 
     if "_" not in display:
-        print(f"checkpoint --> {display}")
         break
     continue
 
