@@ -2,7 +2,7 @@
 import random
 
 # list of random words to choose from for the problem 
-word_list = ['electricity', 'donkey', 'hardware', 'xerox', 'transistor', 'computer',
+word_list = ['family', 'donkey', 'hardware', 'xerox', 'transistor', 'computer',
  'engineering', 'hangman', 'circuit', 'imagination', 'robot', 'memory', 'power', 
  'submarine', 'chess', 'resistance', 'matrix', 'function', 'laser', 'mechanism', 
  'bodyguard', 'titanic', 'global', 'ozone', 'bridge', 'technology', 'spider', 
@@ -36,14 +36,20 @@ word_list = ['electricity', 'donkey', 'hardware', 'xerox', 'transistor', 'comput
  'surprise', 'nothing', 'ladder', 'opposite', 'reality', 'genius', 'string', 
  'attraction', 'sensitivity', 'magnification', 'someone', 'symptom', 'recipe',
  'service', 'family', 'island', 'planet', 'butterfly']
+           
 
 # The random word for the game 
 Hangman_secret = random.choice(word_list)
 
 # User input and instructions 
-Name = input ("greetings what is your name ah!!!! \n")
+Name = input ("greetings what is your name ah!!!! :- ")
 print(f"{Name}, we will let you guess the words for HANGMAN! you have 4 life lines with you"
       "\nif you guess incorrectly you will lose a life and the hangman shall be drawn")
+
+# Place holder was required to hold display values and edge cases 
+place_holder = ""
+for x in Hangman_secret:
+    place_holder += "_"
 
 # Life Count
 LIFE_COUNT = 3
@@ -59,9 +65,11 @@ while LIFE_COUNT > 0:
         if guess == letter:
             guessed_letters.append(letter)
 
-#   Loosing life logic             
+#   Loosing life logic  ( point left to correct - incorrect answers dont hold on to the state of display )           
     if guess not in Hangman_secret:
         LIFE_COUNT -= 1
+        display = place_holder
+        # handling incorrect answers 
     else: 
        # Dynamic display for guessed lettes 
        for s in Hangman_secret:
@@ -69,9 +77,11 @@ while LIFE_COUNT > 0:
                 display += s
             else:
                 display += "_"
+    place_holder = display
     print(display)
     # Game won logic 
     if "_" not in display:
+        print(f"checkpoint --> {display}")
         break
     continue
 
