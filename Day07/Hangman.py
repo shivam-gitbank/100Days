@@ -42,13 +42,9 @@ word_list = ['electricity']
 Hangman_secret = random.choice(word_list)
 
 # user input and instructions 
-Name = input ("greetings what is your name ah!!!! ")
-print(f"{Name}, we will let you guess the words for HANGMAN! you have 4 life lines with you \n"
-      "if you guess incorrectly you will lose a life and the hangman shall be drawn\n ")
-
-place_holder = ""
-for i in range(len(Hangman_secret)):
-    place_holder += "_"
+Name = input ("greetings what is your name ah!!!! \n")
+print(f"{Name}, we will let you guess the words for HANGMAN! you have 4 life lines with you"
+      "\nif you guess incorrectly you will lose a life and the hangman shall be drawn")
 
 # total life 
 LIFE_COUNT = 4
@@ -59,27 +55,26 @@ while LIFE_COUNT > 0:
     # Keeping the input as lowercase to keep the input consistent.
     guess = input("\nwhat is your current guess? ").lower()
     display = ""
-    #logic for priting same lenght blanks and letters inside the random chosen word. 
+    # Gussed letters list for keeping correct gusses saved
     for letter in Hangman_secret:
         if guess == letter:
             guessed_letters.append(letter)
-# loosing life logic             
+
+#   Loosing life logic             
     if guess not in Hangman_secret:
         LIFE_COUNT -= 1
-        # hangman print function can be here which sends current life count and outputs a print screen with hangman drawn
-    else: # tried break but it exited the while loop so had to use continue.  
+    else: 
+       # Dynamic display for guessed lettes 
        for s in Hangman_secret:
             if s in guessed_letters:
                 display += s
             else:
                 display += "_"
     print(display)
+    # Game won logic 
+    if "_" not in display:
+        break
     continue
-
-print(display)
-if "_" not in display:
-    print("you won!!")
-print(f"\n{Hangman_secret}")
 
 if LIFE_COUNT == 0:
     print("your life are exhausted and so are you")
