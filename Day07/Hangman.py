@@ -86,6 +86,6 @@ while LIFE_COUNT > 0:
     continue
 
 if LIFE_COUNT == 0:
-    print("your life are exhausted and so are you")
+    print(f"You Lost :(  correct word was -> {Hangman_secret}")
 else:
     print(f"YOU WON!! the correct word is {Hangman_secret}")
