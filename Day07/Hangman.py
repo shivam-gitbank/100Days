@@ -79,7 +79,7 @@ while LIFE_COUNT > 0:
                 display += "_"
     place_holder = display
     print(display)
-    # Game won logic 
+    # Game won logic -- "_" checks the left guesses thats why i had to add the swapping logic for placeholder and display 
     if "_" not in display:
         break
     continue
