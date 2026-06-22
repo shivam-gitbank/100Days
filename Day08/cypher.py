@@ -1,11 +1,12 @@
+# encoding logic - encrytption of text 
 def encode():
-    encode_text = input("Type your message\n")
-    shift_number = input("Type the shift number").isdigit
-    print(encode_text)
-    for e in encode_text:
-        cypher = e+shift_number
-        print(cypher, end="")
+    base_text = input("Type your message\n").lower()
+    shift_number = int(input("Type the shift number\n"))
+    cypher_text = ""
+    for e in base_text:
+        if e >= chr(97) and e <= chr(123):
+            cypher_text += chr(ord(e) + shift_number)
+    return cypher_text    
 
-encode()
-    
-    
+cy = encode()
+print(cy)    
