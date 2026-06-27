@@ -3,7 +3,6 @@ def encode():
     base_text = input("Type your message\n")
     shift_number = int(input("Type the shift number\n"))
     cypher_text = ""
-
 # Loop for processing each letter in cypher 
     for e in base_text:
         t = chr(ord(e) + shift_number)
@@ -19,6 +18,7 @@ def encode():
 # Decypher logic 
 def decode(text, shift):
     decypher = ""
+    # loop for decyphering 
     for t in text:
         if t <= chr(90) and t >= chr(65):
             decypher += chr(ord(t) - shift) 
@@ -30,7 +30,12 @@ def decode(text, shift):
 
 # choosing logic between Cypher and Decypher 
 print("Welcome to Ceaser's cypher")
-choice = input("what would you like to do \n 1 - Cypher text\n 2 - Decypher text")
+#Choice logic 
+choice = int(input("what would you like to do" \
+"\n 1 - Cypher text" \
+"\n 2 - Decypher text\n"))
+
+# function calling 
 if choice == 1:
     print(encode())
 else:
