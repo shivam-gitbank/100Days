@@ -16,9 +16,7 @@ def encode():
             cypher_text += chr(ord(t) - 26)
     return cypher_text    
 
-cy = encode()
-print(cy)
-
+# Decypher logic 
 def decode(text, shift):
     decypher = ""
     for t in text:
@@ -30,5 +28,13 @@ def decode(text, shift):
             decypher += chr(ord(t) + 26)
     return decypher
 
-dy = decode("Ifmmp", 1)
-print(dy)
+# choosing logic between Cypher and Decypher 
+print("Welcome to Ceaser's cypher")
+choice = input("what would you like to do \n 1 - Cypher text\n 2 - Decypher text")
+if choice == 1:
+    print(encode())
+else:
+    print("To decypher text we need the text and the shift secret")
+    decypher = input("Decypher text here --> ")
+    shift_d = int(input("enter shift number "))
+    print(decode(decypher, shift_d))
