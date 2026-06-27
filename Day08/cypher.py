@@ -22,9 +22,9 @@ print(cy)
 def decode(text, shift):
     decypher = ""
     for t in text:
-        if t <= chr(90) and t >=(65):
+        if t <= chr(90) and t >= chr(65):
             decypher += chr(ord(t) - shift) 
-        elif t <= chr(122) and t >=(97):
+        elif t <= chr(122) and t >= chr(97):
             decypher += chr(ord(t) - shift)
         else:
             decypher += chr(ord(t) + 26)
