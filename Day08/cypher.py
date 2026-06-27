@@ -5,7 +5,7 @@ def encode():
     cypher_text = ""
     for e in base_text:
         t = chr(ord(e) + shift_number)
-        if t >= chr(97) and t < chr(124):
+        if t >= chr(97) and t < chr(123):
             cypher_text += t
         else:
             cypher_text += chr(ord(t) - 27)
