@@ -4,8 +4,11 @@ def encode():
     shift_number = int(input("Type the shift number\n"))
     cypher_text = ""
     for e in base_text:
-        if e >= chr(97) and e <= chr(123):
-            cypher_text += chr(ord(e) + shift_number)
+        t = chr(ord(e) + shift_number)
+        if t >= chr(97) and t < chr(124):
+            cypher_text += t
+        else:
+            cypher_text += (t - 27)
     return cypher_text    
 
 cy = encode()
