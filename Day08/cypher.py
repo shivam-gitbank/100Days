@@ -8,7 +8,7 @@ def encode():
         if t >= chr(97) and t < chr(124):
             cypher_text += t
         else:
-            cypher_text += (t - 27)
+            cypher_text += chr(ord(t) - 27)
     return cypher_text    
 
 cy = encode()
