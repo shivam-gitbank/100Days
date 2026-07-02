@@ -4,6 +4,6 @@ def life_in_weeks(age):
     week_left = years_left * 52 # as average weeks are 52
     return week_left
     
-
+#age in weeks
 age = int(input("Hi whats your age "))
 print(f"life left in weeks {life_in_weeks(age)}")
