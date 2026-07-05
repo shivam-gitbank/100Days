@@ -25,6 +25,10 @@ def love_calculator(name1, name2):
      final_total = int((true_total * 10) + love_total)
      return final_total
 
+# user input
+name1 = input(" Input Name 1 = ").lower()
+name2 = input(" Input Name 2 = ").lower()
 
-love_cal = love_calculator("Angela Yu", "Jack Bauer")
+# function call
+love_cal = love_calculator(name1, name2)
 print(f"total % = {love_cal}")
