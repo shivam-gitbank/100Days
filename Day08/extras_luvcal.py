@@ -10,7 +10,7 @@ def love_calculator(name1, name2):
                          total_true += 1
           return total_true
      
-     #Love Functuion
+     #Love Function
      def love(n1, n2):
           total_love = 0
           name_list = [n1, n2]
@@ -20,6 +20,7 @@ def love_calculator(name1, name2):
                          total_love += 1
           return total_love
      
+     # Total calculations
      love_total = love(name1, name2)
      true_total = true(name1, name2)
      final_total = int((true_total * 10) + love_total)
