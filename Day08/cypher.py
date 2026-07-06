@@ -5,14 +5,16 @@ def encode():
     cypher_text = ""
 # Loop for processing each letter in cypher 
     for e in base_text:
-        t = chr(ord(e) + shift_number)
-        if t >= chr(65) and t <= chr(90):
+        t = chr(ord(e) + shift_number) # disrupting space and special chars!!
+        if e >= chr(65) and e <= chr(90):
             cypher_text += t
-        elif t >= chr(97) and t <= chr(122):
+        elif e >= chr(97) and e <= chr(122):
             cypher_text += t
         # Z letter edge case 
-        else:
+        elif t > 'z' or t > 'Z':
             cypher_text += chr(ord(t) - 26)
+        else:
+            cypher_text += e
     return cypher_text    
 
 # Decypher logic 
@@ -25,7 +27,7 @@ def decode(text, shift):
         elif t <= chr(122) and t >= chr(97):
             decypher += chr(ord(t) - shift)
         elif t == " ":
-            continue
+            decypher_text += " "
         else:
             decypher += chr(ord(t) + 26)
     return decypher
