@@ -6,9 +6,9 @@ def encode():
 # Loop for processing each letter in cypher 
     for e in base_text:
         t = chr(ord(e) + shift_number) # disrupting space and special chars!!
-        if e >= chr(65) and e <= chr(90):
+        if t >= chr(65) and t <= chr(90):
             cypher_text += t
-        elif e >= chr(97) and e <= chr(122):
+        elif t >= chr(97) and t <= chr(122):
             cypher_text += t
         # Z letter edge case 
         elif t > 'z' or t > 'Z':
