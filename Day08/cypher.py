@@ -23,27 +23,22 @@ def decode(text, shift):
     # loop for decyphering 
     for t in text:
         de = chr(ord(t) - shift)
-        print(de,"--->",  t) # if t = a and de = a - x t = a then a +26 - split 
-        if de > 'Z' and de < 'a':
+        if t == 'a' and de < 'a':
             decypher += chr(ord(de) + 26) 
-            print(de,"---> Between a and z",  t)
         elif de >= 'a' and de <= 'z':
             decypher += de 
-            print(de,"--->",  t)
         elif de >= 'A' and de <= 'Z':
             decypher += de
-            print(de,"---> between A and Z",  t)
-        elif de < 'A':
+        elif t >= 'A' and de < 'A':
             decypher += chr(ord(de) + 26)
-            print(de,"---> - <A logic",  t)
-        elif de.isalpha != True:
+        else:
             decypher += t
     return decypher
 
 # choosing logic between Cypher and Decypher 
 print("Welcome to Ceaser's cypher")
 #Choice logic 
-choice = int(input("what would you like to do" \
+choice = int(input("what would you like to do" 
 "\n 1 - Cypher text" \
 "\n 2 - Decypher text\n"))
 
