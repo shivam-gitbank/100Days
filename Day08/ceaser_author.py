@@ -15,8 +15,8 @@ def ceaser(choice_text, text_input, shift_number):
     return output_text
 
 # While loop to continue decyphering 
-Restart = True
-while Restart:
+restart = True
+while restart:
     choice = input("for encoding type 'encode' for decypting type 'decode' \n").lower()
     text = input("Input your text here \n").lower()
     shift = int(input("enter your shift number \n"))
@@ -26,8 +26,7 @@ while Restart:
     print(f"the {choice}d text is {final_text}\n")
 
     # logic to re run
-    rerun = input("do you wish to rerun ").lower
+    rerun = input("do you wish to rerun ").lower()
     if rerun == 'no':
         print("good bye!")
-        Restart = False
-        
+        restart = False
