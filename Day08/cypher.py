@@ -22,14 +22,22 @@ def decode(text, shift):
     decypher = ""
     # loop for decyphering 
     for t in text:
-        if t <= chr(90) and t >= chr(65):
-            decypher += chr(ord(t) - shift) 
-        elif t <= chr(122) and t >= chr(97):
-            decypher += chr(ord(t) - shift)
-        elif t == " ":
-            decypher_text += " "
-        else:
-            decypher += chr(ord(t) + 26)
+        de = chr(ord(t) - shift)
+        print(de,"--->",  t) # if t = a and de = a - x t = a then a +26 - split 
+        if de > 'Z' and de < 'a':
+            decypher += chr(ord(de) + 26) 
+            print(de,"---> Between a and z",  t)
+        elif de >= 'a' and de <= 'z':
+            decypher += de 
+            print(de,"--->",  t)
+        elif de >= 'A' and de <= 'Z':
+            decypher += de
+            print(de,"---> between A and Z",  t)
+        elif de < 'A':
+            decypher += chr(ord(de) + 26)
+            print(de,"---> - <A logic",  t)
+        elif de.isalpha != True:
+            decypher += t
     return decypher
 
 # choosing logic between Cypher and Decypher 
