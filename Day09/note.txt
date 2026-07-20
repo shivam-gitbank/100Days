@@ -1,0 +1,64 @@
+In software engineering, automated tests are simply code that tests your actual code. Instead of you manually running your script and checking the output with your eyes, a framework like pytest runs the code with specific inputs and verifies that it returns exactly what you expect.
+
+Let's look at how this works in a production-grade Python environment.
+1. The Rule: How Pytest Finds Things
+
+pytest follows a strict naming convention. For it to find your tests automatically:
+
+    Your test files must start with test_ (e.g., test_day9.py).
+
+    Your test functions inside that file must also start with test_.
+
+2. A Real Example
+
+Let’s say inside your code_day9.py, you have a simple function that calculates a total price with tax:
+
+code_day9.py (Your Actual Code)
+Python
+
+def calculate_total(price, tax_rate):
+    if price < 0 or tax_rate < 0:
+        raise ValueError("Price and tax cannot be negative")
+    return price + (price * tax_rate)
+
+To test this, you create a companion file right next to it:
+
+test_day9.py (Your Test Code)
+Python
+
+# Import the function you want to test
+from code_day9 import calculate_total
+import pytest
+
+# Test 1: Standard expected behavior
+def test_calculate_total_standard():
+    # The 'assert' keyword checks if the statement is True
+    assert calculate_total(100, 0.10) == 110.0
+    assert calculate_total(50, 0.05) == 52.5
+
+# Test 2: Edge case (Zero values)
+def test_calculate_total_zero():
+    assert calculate_total(0, 0.05) == 0.0
+
+# Test 3: Error handling (What happens with bad data?)
+def test_calculate_total_negative_error():
+    # Ensures the function correctly throws an error for bad inputs
+    with pytest.raises(ValueError):
+        calculate_total(-10, 0.05)
+
+3. How to Run It Local vs. GitHub Actions
+
+On your Linux PC:
+Open your terminal and just type:
+Bash
+
+pytest
+
+Pytest will scan your folder, find test_day9.py, execute those functions, and give you a clean output like 3 passed in 0.02s.
+
+On GitHub Actions:
+Remember that .github/workflows/tests.yml file we set up earlier? The very last line is literally just running the pytest command.
+
+Every time you push to dev/100Days or open a PR, GitHub spins up its server, runs pytest, and checks if any of those assert statements failed. If you or someone else accidentally breaks the calculate_total function in the future, the test will catch it instantly before it ever hits production (main).
+
+What kind of functions or logic do you currently have inside your code_day9.py? We can write a specific test for it right now!
