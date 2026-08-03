@@ -35,6 +35,7 @@ while oth_bidd != False:
         BIDDERS[name] = bid # assignment operator is used to assign the key - name to the value- bid in dic BIDDERS
         oth_bidd = True
     else:
+        BIDDERS[name] = bid # edge case - missing bid 
         bid_name, bid_max = highest_bid(BIDDERS)
         oth_bidd = False
 
