@@ -19,7 +19,6 @@ def grades(x):
 student_grades = {}
 for i in student_scores:
     student_grades[i] = i # corrected
-    student_grades[student_scores[i]] = grades(int(i)) # trying to access the value by assining the value index to grades dictionary
-
+    student_grades[i] = grades(student_scores[i]) # trying to access the value by assining the value index to grades dictionary
 print(student_grades)
     
