@@ -7,7 +7,7 @@ student_scores = {
 }
 
 def grades(x):
-    if x >= 91 and x <= 100:
+    if (x) >= 91 and x <= 100:
         return "Outstanding"
     elif x >= 81 and x <= 90:
         return "Exceeds Expectations"
@@ -18,8 +18,8 @@ def grades(x):
 
 student_grades = {}
 for i in student_scores:
-    student_grades[i] = i
-    student_grades[student_scores[i]] = grades(i) # trying to access the value by assining the value index to grades dictionary
+    student_grades[i] = i # corrected
+    student_grades[student_scores[i]] = grades(int(i)) # trying to access the value by assining the value index to grades dictionary
 
 print(student_grades)
     
