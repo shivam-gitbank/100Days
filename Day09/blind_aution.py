@@ -19,7 +19,7 @@ BIDDERS = {}
 def highest_bid(data):
     max_name = max(data, key = data.get) # max func on key
     max_bid = max(data.values()) # max func on value
-    return max_name, max_bid
+    print(f"the bid closes now - highest bid is of ${max_bid} and is won by {max_name}")
 
 oth_bidd = True
 while oth_bidd != False:
@@ -30,7 +30,8 @@ while oth_bidd != False:
     if other_bidder == 'yes':
         continue
     else:
-        bid_name, bid_max = highest_bid(BIDDERS)
         oth_bidd = False
+        highest_bid(BIDDERS)
+        
 
-print(f"the bid closes now - highest bid is of ${bid_max} and is won by {bid_name}")
+
