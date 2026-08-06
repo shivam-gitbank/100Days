@@ -17,14 +17,9 @@ print("""
 
 BIDDERS = {}
 def highest_bid(data):
-    bids = []
-    for i in data:
-        bids.append(data[i])
-    max_bid = max(bids)
-    for j in data:
-        if data[j] == max_bid:
-            bname = j
-    return bname,max_bid
+    max_name = max(data, key = data.get) # max func on key
+    max_bid = max(data.values()) # max func on value
+    return max_name, max_bid
 
 oth_bidd = True
 while oth_bidd != False:
