@@ -25,12 +25,11 @@ oth_bidd = True
 while oth_bidd != False:
     name = input("What is your name?: ")
     bid = int(input("What is your bid?: $ "))
+    BIDDERS[name] = bid
     other_bidder = input("are there any other bidders? Type 'yes' or 'no - ").lower()
     if other_bidder == 'yes':
-        BIDDERS[name] = bid # assignment operator is used to assign the key - name to the value- bid in dic BIDDERS
-        oth_bidd = True
+        continue
     else:
-        BIDDERS[name] = bid # edge case - missing bid 
         bid_name, bid_max = highest_bid(BIDDERS)
         oth_bidd = False
 
