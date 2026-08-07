@@ -17,26 +17,21 @@ print("""
 
 BIDDERS = {}
 def highest_bid(data):
-    bids = []
-    for i in data:
-        bids.append(data[i])
-    max_bid = max(bids)
-    for j in data:
-        if data[j] == max_bid:
-            bname = j
-    return bname,max_bid
+    max_name = max(data, key = data.get) # max func on key
+    max_bid = max(data.values()) # max func on value
+    print(f"the bid closes now - highest bid is of ${max_bid} and is won by {max_name}")
 
 oth_bidd = True
 while oth_bidd != False:
     name = input("What is your name?: ")
     bid = int(input("What is your bid?: $ "))
+    BIDDERS[name] = bid
     other_bidder = input("are there any other bidders? Type 'yes' or 'no - ").lower()
     if other_bidder == 'yes':
-        BIDDERS[name] = bid # assignment operator is used to assign the key - name to the value- bid in dic BIDDERS
-        oth_bidd = True
+        continue
     else:
-        BIDDERS[name] = bid # edge case - missing bid 
-        bid_name, bid_max = highest_bid(BIDDERS)
         oth_bidd = False
+        highest_bid(BIDDERS)
+        
 
-print(f"the bid closes now - highest bid is of ${bid_max} and is won by {bid_name}")
+
