@@ -10,18 +10,19 @@ def calculator(val1, opr, val2):
     elif opr == '/':            # divide
         result = val1 / val2
     elif opr == '%':            # percentage
-        result = val1 / (val2 * 100)
+        result = (val1 /val2) * 100
     return result
 
 # While loop condition 
+
+value = int(input("Please enter your value "))
+operator = input("Please specify the operation  '+', '-', '*', '/' '%'  ") # operator
+val2 = int(input("Enter the value for operation "))
+final_val = calculator(value, operator, val2)
+print(f"the output is {value} {operator} {val2} = {final_val}")
+
 repeat = True
 while repeat == True: 
-    value = int(input("Please enter your value "))
-    operator = input("Please specify the operation  '+', '-', '*', '/' '%'  ") # operator
-    val2 = int(input("Enter the value for operation "))
-    final_val = calculator(value, operator, val2)
-    print(f"the output is {value} {operator} {val2} = {final_val}")
-
 # continuation logic for previous result set
     conti = input("do you wish to continue with the same result ")
     if conti == 'yes':
