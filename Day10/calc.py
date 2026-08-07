@@ -10,7 +10,7 @@ def calculator(val1, opr, val2):
     elif opr == '/':            # divide
         result = val1 / val2
     elif opr == '%':            # percentage
-        result = (val1 /val2) * 100
+        result = (val2 * 100) / val1
     return result
 
 # While loop condition 
