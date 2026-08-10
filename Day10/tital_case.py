@@ -1,5 +1,5 @@
 def tital(fname, lname):
-    first = fname.capitalize()
+    first = fname.capitalize() # tital is also a function that can be of help here as it capitalize fisrt letter of a string sentence
     last = lname.capitalize()
     fullname = first + ' ' + last
     return fullname
