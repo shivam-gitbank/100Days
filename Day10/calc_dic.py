@@ -17,13 +17,14 @@ operation = {
 '/' : divide,
 }
 
-val1 = int(input("enter your value "))
+val1 = int(input("enter your value = "))
 aggregate = True
 while aggregate == True:
-    operator = input("choose your operator ")
-    val2 = int(input("enter second value"))
+    operator = input("choose your operator = ")
+    val2 = int(input("enter second value = "))
     result = operation[operator](val1, val2)
-    cont = input("to continue with result press 'y' to start new cal press 'n' to exit press'E'")
+    print(result)
+    cont = input("to continue with result press 'y' to start new cal press 'n' ")
     if cont == 'y':
         val1 = result
         continue
@@ -32,4 +33,4 @@ while aggregate == True:
         continue
     else:
         aggregate = False
-        print("thanks come again :)")
+        print("Oops wrong option chosen try again :)")
