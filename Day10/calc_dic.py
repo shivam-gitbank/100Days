@@ -29,7 +29,7 @@ while aggregate == True:
         val1 = result
         continue
     elif cont == 'n':
-        val1 = int(input("enter value"))
+        val1 = int(input("enter value "))
         continue
     else:
         aggregate = False
