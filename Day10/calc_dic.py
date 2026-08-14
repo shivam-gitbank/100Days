@@ -23,13 +23,13 @@ while aggregate == True:
     operator = input("choose your operator = ")
     val2 = int(input("enter second value = "))
     result = operation[operator](val1, val2)
-    print(result)
+    print(f"{val1} {operator} {val2} = {result}")
     cont = input("to continue with result press 'y' to start new cal press 'n' ")
     if cont == 'y':
         val1 = result
         continue
     elif cont == 'n':
-        val1 = int(input("enter value "))
+        val1 = int(input("enter value = "))
         continue
     else:
         aggregate = False
