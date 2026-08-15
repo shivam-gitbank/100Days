@@ -10,30 +10,25 @@ cards = {
 
 clubs = ["Spades", "Clubs", "Diamonds", "Hearts"] # list of keys to access card numbers, another way would  have been 2 list
 
-def my_cards(card):
+def random_cards(card):
     my = []
-    for i in range(2):
-        chosen_card = random.choice(cards[random.choice(clubs)])# random.choice(clubs)- access club list, outer random picks one value
-        if chosen_card == 'J' or chosen_card == 'K' or chosen_card =='Q': # Black jack J, K, Q logic
-            my.append(10)
-        else:
-            my.append(chosen_card)
-    return my
-
-def comp_cards(card):
     comp = []
     for i in range(2):
-        chosen_card = random.choice(cards[random.choice(clubs)])# random.choice(clubs)- access club list, outer random picks one value
-        if chosen_card == 'J' or chosen_card == 'K' or chosen_card =='Q':
+        my_card = random.choice(cards[random.choice(clubs)])# random.choice(clubs)- access club list, outer random picks one value
+        comp_card = random.choice(cards[random.choice(clubs)])
+        if my_card == 'J' or my_card == 'K' or my_card =='Q': # Black jack J, K, Q logic
+            my.append(10)
+        elif comp_card == 'J' or comp_card == 'K' or comp_card == 'Q':
             comp.append(10)
         else:
-            comp.append(chosen_card)
-    return comp
+            my.append(my_card)
+            comp.append(comp_card)
+        return my, comp
 
-def draw_more()
+def draw_more():
+    return int(random.choice(cards[random.choice(clubs)]))
             
-my_list = my_cards(cards)
-comp_list = comp_cards(cards)
+my_list, comp_list = random_cards(cards)
 
 def draw(my_list, comp_list):
     my_sum = sum(my_list)
@@ -42,13 +37,20 @@ def draw(my_list, comp_list):
     while draws == True:
         if my_sum < 21 and comp_sum > 21:
             draws = False
-            print("YOU WIN $$$ !!! :)")
+            print(f"{my_sum}, {comp_sum}")
+            print(f"YOU WIN $$$ !!! :)")
         elif my_sum > 21 and comp_sum < 21:
             draws = False
-            print("YOU LOSE :*( ")
+            print(f"{my_sum}, {comp_sum}")
+            print(f"YOU LOSE :*( ")
         elif my_sum < 21 and comp_sum < 21:
             draws = True
-            my_sum1, comp_sum1 = draw_more(my_sum, comp_sum)
+            print(my_sum, comp_sum)
+            newcard = draw_more()
+            newcard1 = draw_more()
+            my_sum += newcard
+            comp_sum += newcard1
+            print(f"{my_sum}, {comp_sum}")
 draw(my_list, comp_list)
         
 
