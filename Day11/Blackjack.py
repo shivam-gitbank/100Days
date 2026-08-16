@@ -23,7 +23,7 @@ def random_cards(card):
         else:
             my.append(my_card)
             comp.append(comp_card)
-        return my, comp
+    return my, comp
 
 def draw_more():
     return int(random.choice(cards[random.choice(clubs)]))
@@ -37,7 +37,7 @@ def draw(my_list, comp_list):
     while draws == True:
         if my_sum < 21 and comp_sum > 21:
             draws = False
-            print(f"{my_sum}, {comp_sum}")
+            print(f"your cards sum {my_sum}, opp card sum {comp_sum}")
             print(f"YOU WIN $$$ !!! :)")
         elif my_sum > 21 and comp_sum < 21:
             draws = False
@@ -45,12 +45,12 @@ def draw(my_list, comp_list):
             print(f"YOU LOSE :*( ")
         elif my_sum < 21 and comp_sum < 21:
             draws = True
-            print(my_sum, comp_sum)
-            newcard = draw_more()
-            newcard1 = draw_more()
-            my_sum += newcard
-            comp_sum += newcard1
-            print(f"{my_sum}, {comp_sum}")
+            print(f"your sum {my_sum}, opp sum {comp_sum}")
+            my_list.append(draw_more())
+            comp_list.append(draw_more())
+            my_sum = sum(my_list)
+            comp_sum = sum(comp_list)
+            print(f"after draw your cards {my_sum}, after draw{comp_sum}")
 draw(my_list, comp_list)
         
 
