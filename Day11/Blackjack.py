@@ -10,25 +10,18 @@ cards = {
 
 clubs = ["Spades", "Clubs", "Diamonds", "Hearts"] # list of keys to access card numbers, another way would  have been 2 list
 
-def random_cards(card):
-    my = []
-    comp = []
-    for i in range(2):
-        my_card = random.choice(cards[random.choice(clubs)])# random.choice(clubs)- access club list, outer random picks one value
-        comp_card = random.choice(cards[random.choice(clubs)])
-        if my_card == 'J' or my_card == 'K' or my_card =='Q': # Black jack J, K, Q logic
-            my.append(10)
-        elif comp_card == 'J' or comp_card == 'K' or comp_card == 'Q':
-            comp.append(10)
-        else:
-            my.append(my_card)
-            comp.append(comp_card)
-    return my, comp
+def random_cards():
+    the_card = random.choice(cards[random.choice(clubs)])# random.choice(clubs)- access club list, outer random picks one value
+    if the_card == 'J' or the_card == 'K' or the_card =='Q': # Black jack J, K, Q logic
+        the_card = 10
+    return int(the_card)
 
-def draw_more():
-    return int(random.choice(cards[random.choice(clubs)]))
-            
-my_list, comp_list = random_cards(cards)
+# initial list prep
+comp_list = []
+my_list = []
+for i in range(2): # choosing random 2 cards for both player and comp
+    comp_list.append(random_cards())
+    my_list.append(random_cards())
 
 def draw(my_list, comp_list):
     my_sum = sum(my_list)
@@ -46,12 +39,11 @@ def draw(my_list, comp_list):
         elif my_sum < 21 and comp_sum < 21:
             draws = True
             print(f"your sum {my_sum}, opp sum {comp_sum}")
-            my_list.append(draw_more())
-            comp_list.append(draw_more())
-            my_sum = sum(my_list)
-            comp_sum = sum(comp_list)
-            print(f"after draw your cards {my_sum}, after draw{comp_sum}")
-draw(my_list, comp_list)
+            choice = input("do you wish to draw more press 'yes' else 'No'").lower()
+            if choice == "yes":
+                random_cards
+             
+
         
 
 
