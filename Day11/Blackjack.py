@@ -29,8 +29,8 @@ def draw(my_list, comp_list):
     print(f"your current card total = {my_sum} \nopp current cards sum = {comp_sum}")
     choice = input("do you wish to draw more cards ? Yes - y or No - n ").lower()
     if choice == 'y' and my_sum < 21:
-        my_list.append(random_cards)
-        comp_list.append(random_cards)
+        my_list.append(random_cards()) # issue was half made call forgot to put the parameter tag ()
+        comp_list.append(random_cards())
         my_sum = sum(my_list)
         comp_sum = sum(comp_list)
         if my_sum == 21:
@@ -42,8 +42,10 @@ def draw(my_list, comp_list):
             print(f"you went over 21 you lose!")
         elif my_sum == comp_sum:
             print("its a draw ")
-    
+
 draw(my_list, comp_list)
+    
+
             
         #     draws = False
         #     print(f"your cards sum {my_sum}, opp card sum {comp_sum}")
