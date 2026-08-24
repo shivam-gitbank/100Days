@@ -27,7 +27,7 @@ def draw(my_list, comp_list):
     my_sum = sum(my_list)
     comp_sum = sum(comp_list)
     print(f"your current card total = {my_sum} \nopp current cards sum = {comp_sum}")
-    choice = input("do you wish to draw more cards ? Yes - y or No - n ").lower
+    choice = input("do you wish to draw more cards ? Yes - y or No - n ").lower()
     if choice == 'y' and my_sum < 21:
         my_list.append(random_cards)
         comp_list.append(random_cards)
@@ -43,7 +43,7 @@ def draw(my_list, comp_list):
         elif my_sum == comp_sum:
             print("its a draw ")
     
-
+draw(my_list, comp_list)
             
         #     draws = False
         #     print(f"your cards sum {my_sum}, opp card sum {comp_sum}")
