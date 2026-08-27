@@ -23,25 +23,36 @@ for i in range(2): # choosing random 2 cards for both player and comp
     comp_list.append(random_cards())
     my_list.append(random_cards())
 
+# def add_card(my_list, comp_list):
+#         my_list.append(random_cards()) # issue was half made call forgot to put the parameter tag ()
+#         comp_list.append(random_cards())
+#         my_sum = sum(my_list)
+#         comp_sum = sum(comp_list)
+
 def draw(my_list, comp_list):
     my_sum = sum(my_list)
     comp_sum = sum(comp_list)
     print(f"your current card total = {my_sum} \nopp current cards sum = {comp_sum}")
     choice = input("do you wish to draw more cards ? Yes - y or No - n ").lower()
     if choice == 'y' and my_sum < 21:
-        my_list.append(random_cards()) # issue was half made call forgot to put the parameter tag ()
-        comp_list.append(random_cards())
-        my_sum = sum(my_list)
-        comp_sum = sum(comp_list)
+        my_sum += random_cards()
+        comp_sum += random_cards()
+        print(f"updated totals \nopp total = {comp_sum}\n your total = {my_sum}")
         if my_sum == 21:
-            print("you win {my_sum}")
-    else:
+            print("you won as your total is 21!")
+        elif comp_sum == 21:
+            print("opp won as the total is 21")
+        else:
+            draw(my_list, comp_list)
+    elif choice == 'n':
         if my_sum < 21 and my_sum > comp_sum:
             print(f"you won as you are closer to 21 than your opp!")
         elif my_sum > 21 and comp_sum <= 21:
             print(f"you went over 21 you lose!")
         elif my_sum == comp_sum:
             print("its a draw ")
+        elif my_sum < 21 and comp_sum < 21:
+            draw(my_list, comp_list)
 
 draw(my_list, comp_list)
     
@@ -52,7 +63,7 @@ draw(my_list, comp_list)
         #     print(f"YOU WIN $$$ !!! :)")
         # elif my_sum > 21 and comp_sum < 21:
         #     draws = False
-        #     print(f"{my_sum}, {comp_sum}")
+        #     print(f"{my_sum}, {comp_sum}")n
         #     print(f"YOU LOSE :*( ")
         # elif my_sum < 21 and comp_sum < 21:
         #     draws = True
