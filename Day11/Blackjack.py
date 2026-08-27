@@ -34,25 +34,18 @@ def draw(my_list, comp_list):
     comp_sum = sum(comp_list)
     print(f"your current card total = {my_sum} \nopp current cards sum = {comp_sum}")
     choice = input("do you wish to draw more cards ? Yes - y or No - n ").lower()
-    if choice == 'y' and my_sum < 21:
-        my_sum += random_cards()
-        comp_sum += random_cards()
-        print(f"updated totals \nopp total = {comp_sum}\n your total = {my_sum}")
-        if my_sum == 21:
-            print("you won as your total is 21!")
-        elif comp_sum == 21:
-            print("opp won as the total is 21")
+    while choice == 'y':
+        if my_sum < 21:
+            my_sum += random_cards()
+            comp_sum += random_cards()
+            print(f"updated totals \nopp total = {comp_sum}\n your total = {my_sum}")
         else:
-            draw(my_list, comp_list)
-    elif choice == 'n':
-        if my_sum < 21 and my_sum > comp_sum:
-            print(f"you won as you are closer to 21 than your opp!")
-        elif my_sum > 21 and comp_sum <= 21:
-            print(f"you went over 21 you lose!")
-        elif my_sum == comp_sum:
-            print("its a draw ")
-        elif my_sum < 21 and comp_sum < 21:
-            draw(my_list, comp_list)
+            if my_sum < 21 and my_sum > comp_sum:
+                print(f"you won as you are closer to 21 than your opp!")
+            elif my_sum > 21 and comp_sum <= 21:
+                print(f"you went over 21 you lose!")
+            elif my_sum == comp_sum:
+                print("its a draw ")
 
 draw(my_list, comp_list)
     
