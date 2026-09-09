@@ -27,20 +27,33 @@ for i in range(2): # choosing random 2 cards for both player and comp
 def draw(my_list, comp_list):
     my_sum = sum(my_list)
     comp_sum = sum(comp_list)
-    print(f"your current card total = {my_sum} \nopp current cards sum = {comp_sum}")
+    print(f"your current card total = {my_sum} \nopp current cards sum = {comp_sum}\n")
     choice = input("do you wish to draw more cards ? Yes - y or No - n ").lower()
-    while choice == 'y':
-        if my_sum < 21:
-            my_sum += random_cards()
-            comp_sum += random_cards()
-            print(f"updated totals \nopp total = {comp_sum}\n your total = {my_sum}")
+
+    #while logic
+    while choice == 'y'and my_sum < 21 and comp_sum < 21:
+        my_list.append(random_cards())
+        comp_list.append(random_cards())
+        my_sum = sum(my_list)
+        comp_sum = sum(comp_list)
+        print(f"updated totals \nopp total = {comp_sum}\n your total = {my_sum}")
+        if my_sum > 21 and comp_sum <= 21:
+            print("you lose, went over 21")
+        elif my_sum <= 21 and comp_sum > 21:
+            print("you won")
+        elif my_sum == comp_sum and my_sum < 21:
+            print("its a draw ")
+        elif my_sum < 21 and comp_sum < 21:
+            choice = input("do you wish to draw again , y or n -> ")
+        elif my_sum == 21:
+            print("you at 21 exactly you won")
         else:
-            if my_sum < 21 and my_sum > comp_sum:
-                print(f"you won as you are closer to 21 than your opp!")
-            elif my_sum > 21 and comp_sum <= 21:
-                print(f"you went over 21 you lose!")
-            elif my_sum == comp_sum:
-                print("its a draw ")
+            print("you both went over 21")
+
+    if choice == 'n' and my_sum < 21 and my_sum > comp_sum:
+        print("you won as you are closer to 21")
+    elif choice == 'n' and my_sum < comp_sum and comp_sum < 21:
+        print("you lose as you your opp is closer to 21")
 
 draw(my_list, comp_list)
 
