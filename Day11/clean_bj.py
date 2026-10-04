@@ -24,6 +24,7 @@ def random_cards():
 # initial list prep
 comp_list = []
 my_list = []
+game_over = False #flag
 
 # drawing 2 cards for both opp to start the game
 for i in range(2): # choosing random 2 cards for both player and comp
@@ -42,7 +43,13 @@ def calculate_score (my_list):
 opp_sum = calculate_score(comp_list)
 my_sum = calculate_score(my_list)
 
-        
+print(f"your cards {my_list} - your score {my_sum}")
+print(f"your Opp first card {comp_list[0]}")
+
+# video lecture solution       
+if my_sum > 21:
+    print("you lost as you went over 21")
+    game_over = True
 
 
 
