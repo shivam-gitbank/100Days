@@ -1,15 +1,20 @@
 import random
 
+#const list
+numbers =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+
 # J, Q, K are considered as 10 for blackjack
 cards = {
-    "Spades": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'], 
-    "Clubs": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'],
-    "Diamonds": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'],
-    "Hearts": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'],
+    "Spades":numbers, 
+    "Clubs": numbers,
+    "Diamonds": numbers,
+    "Hearts": numbers,
 }
 
+#list of keys
 clubs = ["Spades", "Clubs", "Diamonds", "Hearts"] # list of keys to access card numbers, another way would  have been 2 list
 
+#picking random card from list 
 def random_cards():
     the_card = random.choice(cards[random.choice(clubs)])# random.choice(clubs)- access club list, outer random picks one value
     if the_card == 'J' or the_card == 'K' or the_card =='Q': # Black jack J, K, Q logic
