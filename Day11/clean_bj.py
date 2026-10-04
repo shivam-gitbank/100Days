@@ -24,6 +24,8 @@ def random_cards():
 # initial list prep
 comp_list = []
 my_list = []
+opp_sum = -1
+my_sum = -1
 game_over = False #flag
 
 # drawing 2 cards for both opp to start the game
@@ -40,6 +42,14 @@ def calculate_score (lst):
         lst.append(1)
     return sum(lst)
 
+def compare(my_sum, comp_sum):
+    if my_sum == comp_sum :
+        return "Draw !"
+    elif comp_sum == 21:
+        return "opp has a blackjack"
+    
+
+
 while game_over == False:         
     opp_sum = calculate_score(comp_list)
     my_sum = calculate_score(my_list)
@@ -53,9 +63,10 @@ while game_over == False:
         choice = input('do you wish to draw another card "y" or "n" ')
         if choice == 'y':
             my_list.append(random_cards())
-            comp_list.append(random_cards())
         else:
             game_over
 
 
-
+while opp_sum != 0 and opp_sum < 17:
+    comp_list.append(random_cards())
+    opp_sum = calculate_score(comp_list)
