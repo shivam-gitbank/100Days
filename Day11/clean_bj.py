@@ -32,24 +32,30 @@ for i in range(2): # choosing random 2 cards for both player and comp
     my_list.append(random_cards())
 
 #calculate sum of cards - per list
-def calculate_score (my_list):
-    if sum(my_list) == 21 and len(my_list) == 2:
+def calculate_score (lst):
+    if sum(lst) == 21 and len(lst) == 2:
         return 0
-    if 11 in my_list and sum(my_list) > 21:
-        my_list.remove(11)
-        my_list.append(1)
-    return sum(my_list)
-             
-opp_sum = calculate_score(comp_list)
-my_sum = calculate_score(my_list)
+    if 11 in lst and sum(lst) > 21:
+        lst.remove(11)
+        lst.append(1)
+    return sum(lst)
 
-print(f"your cards {my_list} - your score {my_sum}")
-print(f"your Opp first card {comp_list[0]}")
-
-# video lecture solution       
-if my_sum > 21:
-    print("you lost as you went over 21")
-    game_over = True
+while game_over == False:         
+    opp_sum = calculate_score(comp_list)
+    my_sum = calculate_score(my_list)
+    print(f"your cards {my_list} - your score {my_sum}")
+    print(f"your Opp first card {comp_list[0]}")
+    # video lecture solution       
+    if my_sum > 21:
+        print("you lost as you went over 21")
+        game_over = True
+    else:
+        choice = input('do you wish to draw another card "y" or "n" ')
+        if choice == 'y':
+            my_list.append(random_cards())
+            comp_list.append(random_cards())
+        else:
+            game_over
 
 
 
