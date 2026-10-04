@@ -1,7 +1,7 @@
 import random
 
 #const list
-numbers =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+numbers =  [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
 
 # J, Q, K are considered as 10 for blackjack
 cards = {
@@ -24,45 +24,23 @@ def random_cards():
 # initial list prep
 comp_list = []
 my_list = []
+
+# drawing 2 cards for both opp to start the game
 for i in range(2): # choosing random 2 cards for both player and comp
     comp_list.append(random_cards())
     my_list.append(random_cards())
 
-#Draw logic
-def draw(my_list, comp_list):
-    my_sum = sum(my_list)
-    comp_sum = sum(comp_list)
-    print(f"your current card total = {my_sum} \nopp current cards sum = {comp_sum}\n")
-    choice = input("do you wish to draw more cards ? Yes - y or No - n ").lower()
-
-    #while logic
-    while choice == 'y'and my_sum < 21 and comp_sum < 21:
-        my_list.append(random_cards())
-        comp_list.append(random_cards())
-        my_sum = sum(my_list)
-        comp_sum = sum(comp_list)
-        print(f"updated totals \nopp total = {comp_sum}\n your total = {my_sum}")
-        if my_sum > 21 and comp_sum <= 21:
-            print("you lose, went over 21")
-        elif my_sum <= 21 and comp_sum > 21:
-            print("you won")
-        elif my_sum == comp_sum and my_sum < 21:
-            print("its a draw ")
-        elif my_sum < 21 and comp_sum < 21:
-            choice = input("do you wish to draw again , y or n -> ")
-        elif my_sum == 21:
-            print("you at 21 exactly you won")
-        else:
-            print("you both went over 21")
-
-    if choice == 'n' and my_sum < 21 and my_sum > comp_sum:
-        print("you won as you are closer to 21")
-    elif choice == 'n' and my_sum < comp_sum and comp_sum < 21:
-        print("you lose as you your opp is closer to 21")
-
-draw(my_list, comp_list)
-
+#calculate sum of cards - per list
+def calculate_score (my_list):
+    if sum(my_list) == 21 and len(my_list) == 2:
+        return 0
+    if 11 in my_list and sum(my_list) > 21:
+        my_list.remove(11)
+        my_list.append(1)
+    return sum(my_list)
              
+opp_sum = calculate_score(comp_list)
+my_sum = calculate_score(my_list)
 
         
 
