@@ -16,23 +16,25 @@ else:
 
 # guess function global scope 
 def Guess():
-    num = input("Enter your number -->")
-    return int(num)
+    num = int(input("Enter your number -->"))
+    return num
+
 # function for difficulty and continuing the game
 def game(chances):
-    while chances != 0:
-        guess = Guess()
+    guess = Guess()
+    while chances >= 2:
         if guess == final_number:
             print("you guesssed it right")
         elif guess < final_number:
             chances -= 1
             print("your guessed too low \n" \
             f"you now have {chances} chances")
-            guess = Guess()
+            guess = Guess()                  
         elif guess > final_number:
             chances -=1
             print("you guessed too high\n" \
             f"now you have {chances} chances")
             guess = Guess()
-
+    if chances <= 2:
+        print(f"Game over correct answer was {final_number} ")
 game(chances)
