@@ -8,38 +8,30 @@ difficulty = input("choose your difficulty \n" \
 " --> HARD (┬┬﹏┬┬)\n" \
 "---> EASY o(≧▽≦) \n").lower()
 
-def game(difficulty):
-    if difficulty == "hard":
-        chances = 5
-        guess = input("enter your number")
-        for i in range(chances):
+# chances logic
+if difficulty == "hard":
+    chances = 5
+else:
+    chances = 10
+
+# guess function global scope 
+def Guess():
+    input("Enter your number -->")
+
+# function for difficulty and continuing the game
+def game(difficulty, chances):
+    while chances != 0:
+        if difficulty == "hard":
+            guess = Guess()
             if guess == final_number:
                 print("you guesssed it right")
-            else:
+            elif guess < final_number:
                 chances -= 1
-                print("your guess was incorrect Guess again\n" \
+                print("your guessed too low \n" \
                 f"you now have {chances}")
-                if chances == 0:
-                    print("game over ")
-                    print(f"correct number was {final_number}")
-                    break
-                else:
-                    guess = int(input("Enter number -- > "))
-    else:
-        chances = 10
-        guess = input("enter your number")
-        for i in range(chances):
-                if guess == final_number:
-                    print("you guesssed it right")
-                else:
-                    chances -= 1
-                    print("your guess was incorrect Guess again\n" \
-                    f"you now have {chances}")
-                    if chances == 0:
-                        print("game over ")
-                        print(f"correct number was {final_number}")
-                        break
-                    else:
-                        guess = int(input("Enter number -- > "))
+                guess = Guess()
+            elif guess > final_number:
+                print("you guessed too high")
+                guess = Guess()
 
 game(difficulty)
