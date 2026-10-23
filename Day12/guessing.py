@@ -15,8 +15,8 @@ if difficulty == "hard":
             print("you guesssed it right")
         else:
             chances -= 1
-            print(f"your guess was incorrect Guess again\n" \
-            "you now have {chances}")
+            print("your guess was incorrect Guess again\n" \
+            f"you now have {chances}")
             if chances == 0:
                 print("game over ")
                 break
@@ -28,8 +28,8 @@ else:
                 print("you guesssed it right")
             else:
                 chances -= 1
-                print(f"your guess was incorrect Guess again\n" \
-                "you now have {chances}")
+                print("your guess was incorrect Guess again\n" \
+                f"you now have {chances}")
                 if chances == 0:
                     print("game over ")
                     break
