@@ -6,7 +6,7 @@ MONEY = coffeedata.coin_data # coin values, in float (0.01, 0.05, 0.10, 0.25)
 
 
 def process_order(user_input):
-    print(user_input)
+    print(MENU[user_input])
 
 # def menu():
 
