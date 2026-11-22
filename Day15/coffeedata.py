@@ -27,7 +27,7 @@ CM_data = {
 "money": 0.00,}
 }
 
-coin_data = {"penny": 0.01, "Nickel": 0.05, "Dime" : 0.10, "Quarter": 0.25}
+coin_data = {"Penny": 0.01, "Nickel": 0.05, "Dime" : 0.10, "Quarter": 0.25}
 
 class Incorrect_order(Exception):
     pass

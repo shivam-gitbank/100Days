@@ -14,13 +14,13 @@ def resources_processing(resources, order):
     try:
         if milk < order["milk_intake"]:
             STOCK = False
-            raise coffeedata.Insufficient_resources("Milk Insufficent! cannot process order kindly reSTOCK")
+            raise coffeedata.Insufficient_resources("Milk Insufficent! cannot process order kindly restock")
         elif water < order["water_intake"]:
             STOCK = False
             raise coffeedata.Insufficient_resources("Water Insufficient! cannot process order kindly refill") 
         elif coffee < order["coffee_intake"]:
             STOCK = False
-            raise coffeedata.Insufficient_resources("Coffee Insufficient to process order, kindly reSTOCK!")
+            raise coffeedata.Insufficient_resources("Coffee Insufficient to process order, kindly restock!")
         else:
             print("Enjoy your Coffee!")
     except coffeedata.Insufficient_resources as e:
@@ -38,7 +38,7 @@ def process_order(price, order):
     try:
         if total < price:
             raise coffeedata.Money_Error("Insufficient Money Provided! Please try again")
-#    global declaration for passing
+#    global declaration for passing 
         global BALANCE
         global RESOURCES
         BALANCE += total
@@ -49,7 +49,7 @@ def process_order(price, order):
 # REPEATED ORDER AND INCORRECT ORDER HANDLING
 while STOCK == True:
     try:
-        user_input = input("Please enter your choice of coffee \n 'Espresso', 'Latte', 'Cappuccino'")
+        user_input = input("Please enter your choice of coffee \n 'Espresso', 'Latte', 'Cappuccino' ")
         if user_input not in (MENU.keys()):
             raise coffeedata.Incorrect_order("Oops! Incorrect Order, please try again.") 
         elif user_input == "report": # report logic
