@@ -34,3 +34,6 @@ class Incorrect_order(Exception):
 
 class Insufficient_resources(Exception):
     pass
+
+class Money_error(Exception):
+    pass
