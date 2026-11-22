@@ -29,10 +29,10 @@ def resources_processing(resources, order):
 # Money and order processing
 def process_order(price, order):
     # money def and calc
-    Quarter = int(input("Enter the number of Quarters ")) * 0.25
-    Dime = int(input("Enter the number of Dime ")) * 0.10
-    Nickel = int(input("Enter the number of Nickel ")) * 0.05
-    Penny = int(input("Enter the number of Penny ")) * 0.01
+    Quarter = int(input("Enter the number of Quarters ")) * coffeedata.coin_data["Quarter"]
+    Dime = int(input("Enter the number of Dime ")) * coffeedata.coin_data["Dime"]
+    Nickel = int(input("Enter the number of Nickel ")) * coffeedata.coin_data["Nickel"]
+    Penny = int(input("Enter the number of Penny ")) * coffeedata.coin_data["Penny"]
     total = (Quarter + Dime + Nickel + Penny) # total
 
     try:
