@@ -14,25 +14,25 @@ def resources_processing(resources, order):
     try:
         if milk < order["milk_intake"]:
             STOCK = False
-            raise coffeedata.Resource_insufficent("Milk Insufficent! cannot process order kindly reSTOCK")
+            raise coffeedata.Insufficient_resources("Milk Insufficent! cannot process order kindly reSTOCK")
         elif water < order["water_intake"]:
             STOCK = False
-            raise coffeedata.Resource_insufficent("Water Insufficient! cannot process order kindly refill") 
+            raise coffeedata.Insufficient_resources("Water Insufficient! cannot process order kindly refill") 
         elif coffee < order["coffee_intake"]:
             STOCK = False
-            raise coffeedata.Resource_insufficent("Coffee Insufficient to process order, kindly reSTOCK!")
+            raise coffeedata.Insufficient_resources("Coffee Insufficient to process order, kindly reSTOCK!")
         else:
             print("Enjoy your Coffee!")
-    except coffeedata.Resource_insufficent as e:
+    except coffeedata.Insufficient_resources as e:
             print(e) 
 
 # Money and order processing
 def process_order(price, order):
     # money def and calc
-    Quarter = int(input("Enter the number of Quarters")) * 0.25
-    Dime = int(input("Enter the number of Dime")) * 0.10
-    Nickel = int(input("Enter the number of Nickel")) * 0.05
-    Penny = int(input("Enter the number of Penny")) * 0.01
+    Quarter = int(input("Enter the number of Quarters ")) * 0.25
+    Dime = int(input("Enter the number of Dime ")) * 0.10
+    Nickel = int(input("Enter the number of Nickel ")) * 0.05
+    Penny = int(input("Enter the number of Penny ")) * 0.01
     total = (Quarter + Dime + Nickel + Penny) # total
 
     try:
@@ -42,7 +42,7 @@ def process_order(price, order):
         global BALANCE
         global RESOURCES
         BALANCE += total
-        resources_processing(RESOURCES, MENU[order]) # resources processing
+        resources_processing(RESOURCES, order) # resources processing
     except coffeedata.Money_Error as e:
         print(e)
 
