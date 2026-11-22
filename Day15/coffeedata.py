@@ -23,9 +23,9 @@ CM_data = {
 
 "report" :{"milk": 200,
 "water": 300,
-"coffee": 100} ,
+"coffee": 100 ,
+"money": 0,}
 }
-
 
 coin_data = {"penny": 0.01, "Nickel": 0.05, "Dime" : 0.10, "Quarter": 0.25}
 
