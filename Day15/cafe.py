@@ -48,6 +48,9 @@ def process_order(price, order):
         global BALANCE
         global RESOURCES
         BALANCE += total
+        change = total - price
+        print(f"your order is being processed \n \
+              here's your changes $ {change}\n") # order processing and left over change reversal
         resources_processing(order) # resources processing
     except coffeedata.Money_Error as e:
         print(e)
