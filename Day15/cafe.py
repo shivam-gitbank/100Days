@@ -12,13 +12,13 @@ def resources_processing(resources, order):
     coffee = resources ["coffee"] - order["coffee_intake"]
 # resources expection handling per inventory item
     try:
-        if milk < order["milk_intake"]:
+        if milk <= 0:
             STOCK = False
             raise coffeedata.Insufficient_resources("Milk Insufficent! cannot process order kindly restock")
-        elif water < order["water_intake"]:
+        elif water <= 0:
             STOCK = False
             raise coffeedata.Insufficient_resources("Water Insufficient! cannot process order kindly refill") 
-        elif coffee < order["coffee_intake"]:
+        elif coffee <= 0:
             STOCK = False
             raise coffeedata.Insufficient_resources("Coffee Insufficient to process order, kindly restock!")
         else:
