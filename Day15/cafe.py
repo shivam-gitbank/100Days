@@ -22,12 +22,7 @@ def resources_processing(order):
             STOCK = False
             raise coffeedata.Insufficient_resources("Coffee Insufficient to process order, kindly restock!")
         else:
-            print( \
-            "\n" \
-            "\n" \
-            "\n"
-            "Enjoy your Coffee!\n")
-            
+            return ("Enjoy your hot Coffee! Pleaes come again")
     except coffeedata.Insufficient_resources as e:
             print(e) 
 
@@ -39,7 +34,7 @@ def process_order(price, order):
     Nickel = int(input("Enter the number of Nickel ")) * coffeedata.coin_data["Nickel"]
     Penny = int(input("Enter the number of Penny ")) * coffeedata.coin_data["Penny"]
     total = (Quarter + Dime + Nickel + Penny) # total
-
+    # exception for price
     try:
         if total < price:
             raise coffeedata.Money_Error("Insufficient Money Provided! Please try again")
@@ -48,8 +43,7 @@ def process_order(price, order):
         global RESOURCES
         BALANCE += total
         change = total - price
-        print(f"your order is being processed\
-              here's your change $ {change}\n") # order processing and left over change reversal
+        print(f"your order is being processed \nCoffee price is ${price}\nhere's your change $ {change}") # order processing and left over change reversal
         resources_processing(order) # resources processing
     except coffeedata.Money_Error as e:
         print(e)
