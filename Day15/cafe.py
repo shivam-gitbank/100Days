@@ -6,23 +6,29 @@ BALANCE = coffeedata.CM_data["report"]["money"] # coin values, in float (0.01, 0
 STOCK = True
 
 # Resources Processing logic
-def resources_processing(resources, order):
-    milk = resources["milk"] - order["milk_intake"]
-    water = resources["water"] - order["water_intake"]
-    coffee = resources ["coffee"] - order["coffee_intake"]
+def resources_processing(order):
+    print(RESOURCES["milk"])
+    RESOURCES["milk"] -= order["milk_intake"]
+    RESOURCES["water"] -= order["water_intake"]
+    RESOURCES["coffee"] -= order["coffee_intake"]
 # resources expection handling per inventory item
     try:
-        if milk <= 0:
+        if RESOURCES["milk"] <= 0:
             STOCK = False
             raise coffeedata.Insufficient_resources("Milk Insufficent! cannot process order kindly restock")
-        elif water <= 0:
+        elif RESOURCES["water"] <= 0:
             STOCK = False
             raise coffeedata.Insufficient_resources("Water Insufficient! cannot process order kindly refill") 
-        elif coffee <= 0:
+        elif RESOURCES["coffee"] <= 0:
             STOCK = False
             raise coffeedata.Insufficient_resources("Coffee Insufficient to process order, kindly restock!")
         else:
-            print("Enjoy your Coffee!")
+            print( \
+            "\n" \
+            "\n" \
+            "\n"
+            "Enjoy your Coffee!\n")
+            
     except coffeedata.Insufficient_resources as e:
             print(e) 
 
@@ -42,7 +48,7 @@ def process_order(price, order):
         global BALANCE
         global RESOURCES
         BALANCE += total
-        resources_processing(RESOURCES, order) # resources processing
+        resources_processing(order) # resources processing
     except coffeedata.Money_Error as e:
         print(e)
 
