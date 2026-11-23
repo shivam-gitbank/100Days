@@ -7,8 +7,7 @@ STOCK = True
 
 # Resources Processing logic
 def resources_processing(order):
-    print(RESOURCES["milk"])
-    RESOURCES["milk"] -= order["milk_intake"]
+    RESOURCES["milk"] -= order["milk_intake"] # real time update to resources
     RESOURCES["water"] -= order["water_intake"]
     RESOURCES["coffee"] -= order["coffee_intake"]
 # resources expection handling per inventory item
@@ -49,8 +48,8 @@ def process_order(price, order):
         global RESOURCES
         BALANCE += total
         change = total - price
-        print(f"your order is being processed \n \
-              here's your changes $ {change}\n") # order processing and left over change reversal
+        print(f"your order is being processed\
+              here's your change $ {change}\n") # order processing and left over change reversal
         resources_processing(order) # resources processing
     except coffeedata.Money_Error as e:
         print(e)
