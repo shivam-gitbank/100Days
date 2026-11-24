@@ -44,7 +44,8 @@ def process_order(price, order):
         BALANCE += total
         change = total - price
         print(f"your order is being processed \nCoffee price is ${price}\nhere's your change $ {change}") # order processing and left over change reversal
-        resources_processing(order) # resources processing
+        order_status = resources_processing(order) # resources processing
+        return order_status
     except coffeedata.Money_Error as e:
         print(e)
 
@@ -58,6 +59,8 @@ while STOCK == True:
             report = MENU[user_input]
             STOCK = False
             print(report)
+        elif user_input == "BALANCE":
+             print(f"total balance is ${BALANCE}")
         else:
             final = process_order(MENU[user_input]["price"], MENU[user_input]) # ACCESSING ORDER PRICE PASSING TO ORDER PROCESSING LOGIC
             print(final)
