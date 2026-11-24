@@ -1,5 +1,6 @@
 import coffeedata
 import random
+import math
 MENU = coffeedata.CM_data # coffee menu
 RESOURCES = coffeedata.CM_data["report"] # default value for resources
 BALANCE = coffeedata.CM_data["report"]["money"] # coin values, in float (0.01, 0.05, 0.10, 0.25)
@@ -29,10 +30,10 @@ def resources_processing(order):
 # Money and order processing
 def process_order(price, order):
     # money def and calc
-    Quarter = int(input("Enter the number of Quarters ")) * coffeedata.coin_data["Quarter"]
-    Dime = int(input("Enter the number of Dime ")) * coffeedata.coin_data["Dime"]
-    Nickel = int(input("Enter the number of Nickel ")) * coffeedata.coin_data["Nickel"]
-    Penny = int(input("Enter the number of Penny ")) * coffeedata.coin_data["Penny"]
+    Quarter = math.floor(int(input("Enter the number of Quarters ")) * coffeedata.coin_data["Quarter"])
+    Dime = math.floor(int(input("Enter the number of Dime ")) * coffeedata.coin_data["Dime"])
+    Nickel = math.floor(int(input("Enter the number of Nickel ")) * coffeedata.coin_data["Nickel"])
+    Penny = math.floor(int(input("Enter the number of Penny ")) * coffeedata.coin_data["Penny"])
     total = (Quarter + Dime + Nickel + Penny) # total
     # exception for price
     try:
@@ -41,11 +42,11 @@ def process_order(price, order):
 #    global declaration for passing 
         global BALANCE
         global RESOURCES
-        BALANCE += total
+        BALANCE += price # machine earnings from coffee
         change = total - price
         print(f"your order is being processed \nCoffee price is ${price}\nhere's your change $ {change}") # order processing and left over change reversal
         order_status = resources_processing(order) # resources processing
-        return order_status
+        return order_status, BALANCE
     except coffeedata.Money_Error as e:
         print(e)
 
@@ -55,14 +56,13 @@ while STOCK == True:
         user_input = input("Please enter your choice of coffee \n 'Espresso', 'Latte', 'Cappuccino' ")
         if user_input not in (MENU.keys()):
             raise coffeedata.Incorrect_order("Oops! Incorrect Order, please try again.") 
-        elif user_input == "report": # report logic
+        elif user_input == MENU["report"]: # report logic
             report = MENU[user_input]
             STOCK = False
             print(report)
-        elif user_input == "BALANCE":
-             print(f"total balance is ${BALANCE}")
         else:
-            final = process_order(MENU[user_input]["price"], MENU[user_input]) # ACCESSING ORDER PRICE PASSING TO ORDER PROCESSING LOGIC
+            final, balance = process_order(MENU[user_input]["price"], MENU[user_input]) # ACCESSING ORDER PRICE PASSING TO ORDER PROCESSING LOGIC
             print(final)
+            print(balance)
     except coffeedata.Incorrect_order as e:
                 print(e)
